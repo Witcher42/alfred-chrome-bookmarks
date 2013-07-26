@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+import sys
 import os
 import re
 import json
+from RankingList import *
 from abc import *
 from provider_settings import *
 
@@ -88,10 +90,11 @@ class ProviderBase(object):
                 payload = None
 
             if payload:
-                regexp = re.compile(re.escape(query), re.UNICODE | re.IGNORECASE)
+                queryTerms = query.split( )
 
                 for x in ProviderBase.inspect_bookmarks(payload['roots']):
-                    matched = bool(regexp.search(x['name'])) or bool(regexp.search(x['url']))
+                    things = [x['name'], x['url']]
+                    matched = RankingList.matches(queryTerms, things)
 
                     if matched:
                         bookmarks.append({'title': x['name'], 'url': x['url']})
