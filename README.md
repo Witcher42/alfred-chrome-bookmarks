@@ -31,7 +31,7 @@ Also you can specify which profile will be used by using a ```chrome-profiles```
 
 ### Download
 
-You can download the workflow from [here](https://raw.github.com/mdreizin/alfred-workflows/master/chrome-bookmarks/zip/chrome-bookmarks.alfredworkflow).
+You can download the workflow from [here](https://github.com/Witcher42/alfred-workflows/blob/master/chrome-bookmarks/zip/chrome-bookmarks.alfredworkflow?raw=true).
 
 
 
