@@ -5,10 +5,12 @@ class RankingList():
     def matches(queryTerms, things):
         for term in queryTerms:
             regexp = re.compile(re.escape(term), re.UNICODE | re.IGNORECASE)
+            matched = False
             for thing in things:
-                matched = not bool(regexp.search(thing))
-                if matched:
-                    return False
+                if not matched:
+                    matched = bool(regexp.search(thing))
+            if not matched:
+                return False
 
         return True
 
