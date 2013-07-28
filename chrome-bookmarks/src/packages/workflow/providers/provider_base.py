@@ -99,4 +99,9 @@ class ProviderBase(object):
                     if matched:
                         bookmarks.append({'title': x['name'], 'url': x['url']})
 
-        return sorted(bookmarks, key=lambda x: (x['title'].lower(), x['url'].lower()))
+        sorted(bookmarks, key=lambda x: (x['title'].lower(), x['url'].lower()))
+
+        title = set()
+        url = set()
+
+        return [x for x in bookmarks if (x['title'] not in title or x['url'] not in url) and not title.add(x['title']) and not url.add(x['url'])]
