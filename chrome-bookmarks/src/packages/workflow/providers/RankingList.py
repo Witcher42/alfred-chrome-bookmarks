@@ -14,20 +14,30 @@ class RankingList():
 
         return True
 
-#matches: function() {
-      #var matchedTerm, queryTerms, regexp, term, thing, things, _i, _j, _len, _len1;
-      #queryTerms = arguments[0], things = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-      #for (_i = 0, _len = queryTerms.length; _i < _len; _i++) {
-        #term = queryTerms[_i];
-        #regexp = RegexpCache.get(term);
-        #matchedTerm = false;
-        #for (_j = 0, _len1 = things.length; _j < _len1; _j++) {
-          #thing = things[_j];
-          #matchedTerm || (matchedTerm = thing.match(regexp));
-        #}
-        #if (!matchedTerm) {
-          #return false;
-        #}
-      #}
-      #return true;
-    #},
+    @staticmethod
+    def wordRelevancy(queryTerms, things):
+        queryLength = 0
+        scores = [ 0.000000 for x in range(len(things))]
+        for term in queryTerms:
+            queryLength += len(term)
+            for i, thing in enumerate(things):
+                if len(thing) and RankingList.matches([term], [thing]):
+                    scores[i] += 1
+
+        finalScore = []
+
+        for i, score in enumerate(scores):
+            if len(things[i]):
+                score = score / len(queryTerms)
+                score = score * RankingList.normalizeDifference(queryLength, len(things[i]))
+                finalScore.append(score)
+
+        if len(finalScore):
+            return sum(finalScore) / len(finalScore)
+        else:
+            return 0
+
+    @staticmethod
+    def normalizeDifference(a, b):
+        big = max(a, b)
+        return ((big - abs(a - b)) + 0.0) / big

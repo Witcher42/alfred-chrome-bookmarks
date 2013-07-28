@@ -99,9 +99,12 @@ class ProviderBase(object):
                     if matched:
                         bookmarks.append({'title': x['name'], 'url': x['url']})
 
-        sorted(bookmarks, key=lambda x: (x['title'].lower(), x['url'].lower()))
+        bookmarks.sort(key=lambda x: (x['title'].lower(), x['url'].lower()), cmp=lambda x, y: cmp(RankingList.wordRelevancy(queryTerms, [y[0], y[1]]), RankingList.wordRelevancy(queryTerms, [x[0], x[1]])))
 
+        return ProviderBase.unique_bookmarks(bookmarks)
+
+    @staticmethod
+    def unique_bookmarks(bookmarks):
         title = set()
         url = set()
-
         return [x for x in bookmarks if (x['title'] not in title or x['url'] not in url) and not title.add(x['title']) and not url.add(x['url'])]
