@@ -18,7 +18,7 @@ This workflow helps you search Google Chrome bookmarks by using a ```chrome``` (
 
 **[New]** This project supports simple fuzzy match, so you can use many keywords to search your bookmarks. <small>I don't use chromium, add it yourself as you like.</small>
 
-[![](./img/chrome_fuzzy.png)](./img/chrome_fuzzy.png)
+[![](https://raw.github.com/Witcher42/alfred-chrome-bookmarks/master/img/chrome_fuzzy.png)](https://raw.github.com/Witcher42/alfred-chrome-bookmarks/master/img/chrome_fuzzy.png)
 
 Also you can specify which profile will be used by using a ```chrome-profiles``` (Google Chrome) or ```chromium-profiles``` (Chromium) keyword:
 
