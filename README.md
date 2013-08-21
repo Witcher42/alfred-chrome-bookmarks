@@ -4,7 +4,7 @@ Chrome Bookmarks
 
 ### Download
 
-You can download the workflow from [here](https://github.com/Witcher42/alfred-workflows/blob/master/chrome-bookmarks/zip/chrome-bookmarks.alfredworkflow?raw=true).
+You can download the workflow from [here](https://github.com/Witcher42/alfred-chrome-bookmarks/raw/master/zip/chrome-bookmarks.alfredworkflow).
 
 
 ### Introduction
